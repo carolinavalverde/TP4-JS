@@ -10,8 +10,9 @@ const rectangulo1 = new Rectangulo(
   );
   console.log(rectangulo1);
   document.write("<h1>Propiedades del Rectángulo 1:</h1><br>");
+
   document.write(
-    "<h2>Perímetro del Rectángulo 1:</h2> " +
+    "<h2>Perímetro del Rectángulo 1:</h2>" +
       rectangulo.calcularPerimetro(rectangulo1) +
       "<br>"
   );
