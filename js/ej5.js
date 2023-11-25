@@ -7,7 +7,6 @@ class Persona {
     this.peso = peso;
     this.altura = altura;
     this.anioDeNacimiento = anioDeNacimiento;
-    this.dni = dni;
   }
 
   mostrarGeneracion() {
@@ -16,7 +15,7 @@ class Persona {
 
     switch (true) {
       case anioDeNacimiento >= 1930 && anioDeNacimiento <= 1948:
-        generacion = "Silent Generation";
+        generacion = "Silent";
         rasgoCaracteristico = "Austeridad";
         break;
       case anioDeNacimiento >= 1949 && anioDeNacimiento <= 1968:
@@ -24,19 +23,19 @@ class Persona {
         rasgoCaracteristico = "Ambición";
         break;
       case anioDeNacimiento >= 1969 && anioDeNacimiento <= 1980:
-        generacion = "Generación X";
+        generacion = "X";
         rasgoCaracteristico = "Obseción por el éxito";
         break;
       case anioDeNacimiento >= 1981 && anioDeNacimiento <= 1993:
-        generacion = "Generación Y";
+        generacion = "Y";
         rasgoCaracteristico = "Frustración";
         break;
       case anioDeNacimiento >= 1994 && anioDeNacimiento <= 2010:
-        generacion = "Generación Z";
+        generacion = "Z";
         rasgoCaracteristico = "Irreverencia";
         break;
       default:
-        generacion = "Generación Alpha";
+        generacion = "Alpha";
         rasgoCaracteristico = "Nativos digitales";
         break;
     }
@@ -45,7 +44,7 @@ class Persona {
       `${nombre} pertenece a la generación ${generacion}. Rasgo característico: ${rasgoCaracteristico}.`
     );
     document.write(`<p>
-      ${nombre} pertenece a la generación ${generacion}. Rasgo característico: ${rasgoCaracteristico}.
+      ${nombre} pertenece a la Generación ${generacion}. Rasgo característico: ${rasgoCaracteristico}.
    </p>`);
   }
 
@@ -57,24 +56,24 @@ class Persona {
   }
 
   mostrarDatos() {
-    const { nombre, edad, sexo, peso, altura, anioDeNacimiento, DNI } = this;
+    const { nombre, edad, dni, sexo, peso, altura, anioDeNacimiento } = this;
     console.log(`
-    Nombre: ${nombre}
-    Edad: ${edad} años
-    Sexo: ${sexo}
-    Peso: ${peso} kg
-    Altura: ${altura} m
-    Año de Nacimiento: ${anioDeNacimiento}
-    DNI: ${DNI}
+    Nombre: ${this.nombre}
+    Edad: ${this.edad} años
+    DNI: ${this.dni}
+    Sexo: ${this.sexo}
+    Peso: ${this.peso} kg
+    Altura: ${this.altura} m
+    Año de Nacimiento: ${this.anioDeNacimiento}
   `);
     document.write(`<ul>
-    <li>Nombre: ${nombre}</li>
-    <li>Edad: ${edad} años</li>
-    <li>Sexo: ${sexo}</li>
-    <li>Peso: ${peso} kg</li>
-    <li>Altura: ${altura} m</li>
-    <li>Año de Nacimiento: ${anioDeNacimiento}</li>
-    <li>DNI: ${DNI}</li>
+    <li>Nombre: ${this.nombre}</li>
+    <li>Edad: ${this.edad} años</li>
+    <li> DNI: ${this.dni}</li>
+    <li>Sexo: ${this.sexo}</li>
+    <li>Peso: ${this.peso} kg</li>
+    <li>Altura: ${this.altura} m</li>
+    <li>Año de Nacimiento: ${this.anioDeNacimiento}</li>
     </ul>`);
   }
 
@@ -84,15 +83,31 @@ class Persona {
 }
 
 const bruceWayne = new Persona(
-  `Bruce Wayne`, 
-  35, 
-  `M`, 
-  90, 
-  1.85, 
-  1985, 
-  20444555
-  );
+  `Bruce Wayne`,
+  35,
+  20444555,
+  `M`,
+  90,
+  1.85,
+  1985,
+);
 
 bruceWayne.mostrarGeneracion();
 bruceWayne.esMayorDeEdad();
 bruceWayne.mostrarDatos();
+
+const selinaKyle = new Persona(
+  'Selina Kyle', 
+  32, 
+  40887777, 
+  'F', 
+  58, 
+  1.75,
+  1991 
+);
+
+selinaKyle.dni = selinaKyle.generaDNI();
+
+selinaKyle.mostrarGeneracion();
+selinaKyle.esMayorDeEdad();
+selinaKyle.mostrarDatos();
